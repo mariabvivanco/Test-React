@@ -1,8 +1,12 @@
+
+import { Box } from '@chakra-ui/react'
 import React from 'react'
 
 const Result=()=> {
   return (
-    <div>Resultados</div>
+     <Box bg='bg' h='100vh'>
+  Resultados
+  </Box>
   )
 }
 

@@ -4,28 +4,17 @@ import {mode} from "@chakra-ui/theme-tools";
 export default extendTheme({
   config: {
     initialColorMode: "light",
-    useSystemColorMode: false,
+    useSystemColorMode: true,
   },
+  
   colors: {
     bg:'#ffffff',
-    primary: '#739F07',
+    primary: '#ED8936',
     secundary: '',
-    neutral:'#787878'
+    neutral:'#787878',
+    hover_active:'#DD6B20',
+    hover_noactive:'#B5D5E0'
     
   },
-  components: {
-    Button: {
-      baseStyle: {
-        borderLeftRadius: 9999,
-        borderRightRadius: 9999,
-        fontWeight: "bold",
-      },
-      sizes: {
-        lg: {
-          paddingY: 3,
-          fontSize: "md",
-        },
-      },
-    },
-  },
+  
 });
