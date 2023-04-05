@@ -53,8 +53,13 @@ const Home = () => {
             </Button>
           </Link>
           <Link to={"/result"}>
-            <Button rounded={"full"} px={6} isDisabled={!isFinish} bg={"bg"} 
-              _hover={{ bg: "hover_noactive" }}>
+            <Button
+              rounded={"full"}
+              px={6}
+              isDisabled={!isFinish}
+              bg={"bg"}
+              _hover={{ bg: "hover_noactive" }}
+            >
               Ver resultados
             </Button>
           </Link>
