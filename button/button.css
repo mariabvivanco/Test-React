@@ -1,0 +1,68 @@
+.checkout-btn {
+  border: 2px solid #616264;
+  border-radius: 20px;
+  background-color: white;
+  font-size: 20px;
+  padding: 3px 3px 3px 3px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.inner-btn {
+  display: block;
+  padding: 5px 5px 5px 5px;
+  border: none;
+  background-image: linear-gradient(to bottom, #bdbdbd, #e0e0e0);
+  border-radius: 15px;
+}
+
+.text-btn {
+  color: #616264;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+
+.two-color-btn {
+  display: inline-block;
+  width: 200px;
+  height: 60px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border: 2px solid #757575;
+  background-image: linear-gradient(to bottom, #e0e0e0, #bdbdbd);
+}
+
+.top-half {
+  width: 100%;
+  height: 50%;
+  background-color: #e0e0e0;
+}
+
+.bottom-half {
+  width: 100%;
+  height: 50%;
+  background-color: #bdbdbd;
+}
+
+.button-text {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  top: 25px;
+  left: 30px;
+  letter-spacing: -1px;
+  transform: scaleY(1.3);
+  font-weight: 700;
+  
+}
+
+.start::before {
+  content: "\2605";
+  color: #969a9d;
+}
+
+
+
