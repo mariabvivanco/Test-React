@@ -1,4 +1,4 @@
-import React, { DragEvent, useEffect } from "react";
+import React, { DragEvent, useEffect, useState } from "react";
 import {
   Box,
   Flex,
@@ -22,28 +22,24 @@ interface CardProps {
 }
 
 const CardAnswer: React.FC<CardProps> = ({ question }) => {
-  
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const onDropEntry = (event: DragEvent<HTMLDivElement>) => {
     const question = event.dataTransfer.getData("question");
     const answer = event.dataTransfer.getData("answer");
-    dispatch(setAnswer({question,answer}))
-    console.log(question, answer)
+    dispatch(setAnswer({ question, answer }));
   };
 
   const allowDrop = (event: DragEvent<HTMLDivElement>) => {
     event.preventDefault();
-    
   };
 
   const answersUser = useSelector(answers);
+  const [title, setTitle] = useState("");
 
   useEffect(() => {
-    console.log(answersUser)
-  
-   
-  }, [answersUser])
-  
+    const temp = answersUser.find((item) => item.question === question)?.answer;
+    setTitle(temp ? temp : "");
+  }, [question, answersUser]);
 
   return (
     <div onDrop={onDropEntry} onDragOver={allowDrop}>
@@ -70,8 +66,8 @@ const CardAnswer: React.FC<CardProps> = ({ question }) => {
               <Icon as={FcAnswers} w={6} h={6} />
             </Flex>
 
-            {answersUser.find((item) => (item.question === question)) ? (
-              <Heading size={{ base: "sm", md: "md" }}>{answersUser.find((item) => (item.question === question))?.answer}</Heading>
+            {title !== "" ? (
+              <Heading size={{ base: "sm", md: "md" }}>{title}</Heading>
             ) : (
               <Text
                 className="blinks"
