@@ -28,7 +28,6 @@ const Exercises = () => {
       <Center>
         <CardAnswer
           question={test[step].question}
-          icon={<Icon as={() => <></>} w={6} h={6} />}
         />
       </Center>
       <Center>

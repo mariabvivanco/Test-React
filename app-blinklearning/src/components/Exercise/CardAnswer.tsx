@@ -18,13 +18,14 @@ import { useDispatch } from "react-redux";
 
 interface CardProps {
   question: string;
-  icon: ReactElement;
+  
 }
 
 const CardAnswer: React.FC<CardProps> = ({ question }) => {
   const dispatch = useDispatch();
   const onDropEntry = (event: DragEvent<HTMLDivElement>) => {
     const question = event.dataTransfer.getData("question");
+    
     const answer = event.dataTransfer.getData("answer");
     dispatch(setAnswer({ question, answer }));
   };

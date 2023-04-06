@@ -6,12 +6,14 @@ import {typeAnswer} from '../types/interfaces'
 export interface IExercState {
   finish: boolean; 
   answers:  typeAnswer[],
+  answerOk: number
  
 }
 
 export const initialState: IExercState = {
   finish:false,
-  answers:[]
+  answers:[],
+  answerOk:0
  
 };
 
@@ -21,6 +23,7 @@ export const exerciseSlice = createSlice({
   reducers: {
     finishExercise: (state) => {
       state.finish=true;
+      
     },
     setAnswer : (state, action) => {
       

@@ -44,7 +44,7 @@ export const resultData:IResult[] = [
     value:
         {icon:ok(),
         title:"Felicidades",
-        description:"Ha acertado el total de la respuestas, es evidente que tiene una excelente cultura general"
+        description:"Ha acertado el total de las respuestas, es evidente que tiene una excelente cultura general"
 
     }},
     {name:'warning',
