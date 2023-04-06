@@ -27,19 +27,23 @@ const Question: React.FC<Props> = ({ choice, question }) => {
       <Container maxW={"5xl"} mt={12}>
         <Flex flexWrap="wrap" gridGap={6} justify="center">
           <CardQuestion
-            heading={choice[0]}
+            question={question}
+            answer={choice[0]}
             icon={<Icon as={TbSquareNumber1} w={6} h={6} />}
           />
           <CardQuestion
-            heading={choice[1]}
+            question={question}
+            answer={choice[1]}
             icon={<Icon as={TbSquareNumber2} w={6} h={6} />}
           />
           <CardQuestion
-            heading={choice[2]}
+            question={question}
+            answer={choice[2]}
             icon={<Icon as={TbSquareNumber3} w={6} h={6} />}
           />
           <CardQuestion
-            heading={choice[3]}
+            question={question}
+            answer={choice[3]}
             icon={<Icon as={TbSquareNumber4} w={6} h={6} />}
           />
         </Flex>
