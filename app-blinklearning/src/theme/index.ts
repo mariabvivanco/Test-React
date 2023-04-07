@@ -1,9 +1,9 @@
-import {extendTheme} from "@chakra-ui/react";
+import {extendTheme} from '@chakra-ui/react';
 
 
 export default extendTheme({
   config: {
-    initialColorMode: "light",
+    initialColorMode: 'light',
     useSystemColorMode: true,
   },
   
@@ -19,7 +19,8 @@ export default extendTheme({
     secundary: '',
     neutral:'#787878',
     hover_active:'#DD6B20',
-    hover_noactive:'#B5D5E0'
+    hover_noactive:'#B5D5E0',
+    orange_light:'#F6AD55'
     
   },
   

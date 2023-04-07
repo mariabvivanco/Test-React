@@ -1,44 +1,58 @@
+.blinks {
+  animation-name: blinkT;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 
-.blinks{
-  
-    animation-name: blinkT;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  
-    -webkit-animation-name:blinkT;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-iteration-count: infinite;
-  }
-  
-  @-moz-keyframes blinkT{  
-    0% { opacity: 1.0; }
-    50% { opacity: 0.0; }
-    100% { opacity: 1.0; }
-  }
-  
-  @-webkit-keyframes blinkT {  
-    0% { opacity: 1.0; }
-    50% { opacity: 0.0; }
-     100% { opacity: 1.0; }
-  }
-  
-  @keyframes blinkT {  
-    0% { opacity: 1.0; }
-     50% { opacity: 0.0; }
-    100% { opacity: 1.0; }
-  }
+  -webkit-animation-name: blinkT;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
 
-  .is-drag{
-    
-    border-radius: 10px;
-    border: 1px dashed orange;
+@-moz-keyframes blinkT {
+  0% {
+    opacity: 1;
   }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
-  .progress{
-    margin-top: 50px;
-    margin-left: 20%;
-    margin-right: 20%;
-    
+@-webkit-keyframes blinkT {
+  0% {
+    opacity: 1;
   }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blinkT {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.is-drag {
+  border-radius: 10px;
+  border: 1px dashed orange;
+}
+
+.progress {
+  margin-top: 50px;
+  margin-left: 20%;
+  margin-right: 20%;
+}

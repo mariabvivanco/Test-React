@@ -7,7 +7,7 @@ import {
   TbSquareNumber3,
   TbSquareNumber4,
 } from "react-icons/tb";
-import {CardQuestion} from "./CardQuestion";
+import { CardQuestion } from "./CardQuestion";
 import useAnswerOk from "../../hooks/useAnswerOk";
 
 interface Props {
@@ -27,33 +27,36 @@ export const Question: React.FC<Props> = ({ choice, question }) => {
 
       <Container maxW={"5xl"} mt={12}>
         <Flex flexWrap="wrap" gridGap={6} justify="center">
-          {!useAnswerOk(question,choice[0])&&<CardQuestion
-            question={question}
-            answer={choice[0]}
-            ind='1'
-            icon={<Icon as={TbSquareNumber1} w={6} h={6} />}
-          />}
-          {!useAnswerOk(question,choice[1])&&<CardQuestion
-            question={question}
-            answer={choice[1]}
-            ind='2'
-            icon={<Icon as={TbSquareNumber2} w={6} h={6} />}
-          />}
-          {!useAnswerOk(question,choice[2])&&<CardQuestion
-            question={question}
-            answer={choice[2]}
-            ind='3'
-            icon={<Icon as={TbSquareNumber3} w={6} h={6} />}
-          />}
-          {!useAnswerOk(question,choice[3])&&<CardQuestion
-            question={question}
-            answer={choice[3]}
-            ind='4'
-            icon={<Icon as={TbSquareNumber4} w={6} h={6} />}
-          />}
+          {!useAnswerOk(question, choice[0]) && (
+            <CardQuestion
+              question={question}
+              answer={choice[0]}
+              icon={<Icon as={TbSquareNumber1} w={6} h={6} />}
+            />
+          )}
+          {!useAnswerOk(question, choice[1]) && (
+            <CardQuestion
+              question={question}
+              answer={choice[1]}
+              icon={<Icon as={TbSquareNumber2} w={6} h={6} />}
+            />
+          )}
+          {!useAnswerOk(question, choice[2]) && (
+            <CardQuestion
+              question={question}
+              answer={choice[2]}
+              icon={<Icon as={TbSquareNumber3} w={6} h={6} />}
+            />
+          )}
+          {!useAnswerOk(question, choice[3]) && (
+            <CardQuestion
+              question={question}
+              answer={choice[3]}
+              icon={<Icon as={TbSquareNumber4} w={6} h={6} />}
+            />
+          )}
         </Flex>
       </Container>
     </Box>
   );
 };
-

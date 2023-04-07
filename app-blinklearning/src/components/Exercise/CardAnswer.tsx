@@ -2,17 +2,8 @@
 
 import React, { DragEvent, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Box,
-  Flex,
-  Heading,
-  Stack,
-  Icon,
-  Text,
-  Center,
-} from "@chakra-ui/react";
+import { Box, Text, Center } from "@chakra-ui/react";
 
-import { FcAnswers } from "react-icons/fc";
 import { answers, setAnswer } from "../../store/exerciseSlicer";
 import "./exercise.css";
 import { CardQuestion } from "./CardQuestion";
@@ -23,7 +14,6 @@ import {
   TbSquareNumber3,
   TbSquareNumber4,
 } from "react-icons/tb";
-import { IconType } from "react-icons/lib";
 import { endDrag } from "../../store/dragSlicer";
 
 interface CardProps {
@@ -45,12 +35,10 @@ export const CardAnswer: React.FC<CardProps> = ({ question }) => {
 
   const answersUser = useSelector(answers);
   const [title, setTitle] = useState("");
-  
 
   useEffect(() => {
     const temp = answersUser.find((item) => item.question === question)?.answer;
     setTitle(temp ? temp : "");
-           
   }, [question, answersUser]);
 
   return (
@@ -64,21 +52,28 @@ export const CardAnswer: React.FC<CardProps> = ({ question }) => {
         p={5}
         pt="20px"
       >
-        <Center>       
-           
-            {title !== "" ? (
-              <CardQuestion
+        <Center>
+          {title !== "" ? (
+            <CardQuestion
               question={question}
               answer={title}
-              ind='4'
-              icon={useIconOk(question,title)===0?<TbSquareNumber1/>:useIconOk(question,title)===1?<TbSquareNumber2/>:useIconOk(question,title)===2?<TbSquareNumber3/>:<TbSquareNumber4/>}
+              icon={
+                useIconOk(question, title) === 0 ? (
+                  <TbSquareNumber1 />
+                ) : useIconOk(question, title) === 1 ? (
+                  <TbSquareNumber2 />
+                ) : useIconOk(question, title) === 2 ? (
+                  <TbSquareNumber3 />
+                ) : (
+                  <TbSquareNumber4 />
+                )
+              }
             />
-            ) : (
-              <Text className="blinks" color="neutral">
-                Arrastre aquí su respuesta
-              </Text>
-            )}
-         
+          ) : (
+            <Text className="blinks" color="neutral" mt="40px">
+              Arrastre aquí su respuesta
+            </Text>
+          )}
         </Center>
       </Box>
     </div>

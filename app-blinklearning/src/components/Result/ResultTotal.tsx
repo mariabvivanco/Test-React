@@ -2,10 +2,10 @@
 import React from "react";
 import { Box, Heading, Text } from "@chakra-ui/react";
 import { resultData } from "../../json/result";
-import testEval  from "../../hooks/testEval";
+import testEval from "../../hooks/testEval";
 
-export const ResultTotal=()=> {
- const ind=testEval()
+export const ResultTotal = () => {
+  const ind = testEval();
 
   return (
     <Box textAlign="center" py={10} px={6}>
@@ -16,4 +16,4 @@ export const ResultTotal=()=> {
       <Text color={"neutral"}>{resultData[ind]?.value.description}</Text>
     </Box>
   );
-}
+};

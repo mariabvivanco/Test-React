@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Box, Button, Center } from "@chakra-ui/react";
-import {Header} from "../components/Header/Header";
+import { Header } from "../components/Header/Header";
 import { ResultDet } from "../components/Result/ResultDet";
 import { ResultTotal } from "../components/Result/ResultTotal";
-import {TablaAnswer} from "../components/Result/TableAnswer";
+import { TablaAnswer } from "../components/Result/TableAnswer";
 
 const Result = () => {
   const [seeResult, setSeeResult] = useState(false);
@@ -17,7 +17,7 @@ const Result = () => {
           rounded={"full"}
           px={6}
           colorScheme={"primary"}
-          bg={"orange.400"}
+          bg={"primary"}
           _hover={{ bg: "hover-active" }}
           onClick={() => setSeeResult(!seeResult)}
         >

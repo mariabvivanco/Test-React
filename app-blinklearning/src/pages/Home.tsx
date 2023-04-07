@@ -46,7 +46,7 @@ const Home = () => {
               isDisabled={isFinish}
               px={6}
               colorScheme={"primary"}
-              bg={"orange.400"}
+              bg="primary"
               _hover={{ bg: "hover_active" }}
             >
               Iniciar Test
@@ -54,7 +54,7 @@ const Home = () => {
           </Link>
           <Link to={"/result"}>
             <Button
-              color="orange"
+              color="primary"
               rounded={"full"}
               px={6}
               isDisabled={!isFinish}

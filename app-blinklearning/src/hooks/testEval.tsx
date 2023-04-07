@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { answers } from "../store/exerciseSlicer";
 import { test } from "../json/test";
 
-
 const testEval = () => {
   let ok = 0;
   const answersUser = useSelector(answers);
@@ -19,7 +18,6 @@ const testEval = () => {
   if (ok === 10) return 0;
   else if (ok > 6) return 1;
   else return 2;
-
 };
 
 export default testEval;
