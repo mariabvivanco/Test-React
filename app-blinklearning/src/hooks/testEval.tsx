@@ -1,7 +1,9 @@
+//import { test } from "../../json/test";
 import React from "react";
 import { useSelector } from "react-redux";
-import { test } from "../json/test";
 import { answers } from "../store/exerciseSlicer";
+import { test } from "../json/test";
+
 
 const testEval = () => {
   let ok = 0;

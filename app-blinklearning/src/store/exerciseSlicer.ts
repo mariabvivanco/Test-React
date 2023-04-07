@@ -1,3 +1,4 @@
+//Reduce related to the state of the exercises and their answers
 
 import { createSlice} from '@reduxjs/toolkit';
 import { RootState } from '.';
@@ -6,15 +7,13 @@ import {typeAnswer} from '../types/interfaces'
 export interface IExercState {
   finish: boolean; 
   answers:  typeAnswer[],
-  answerOk: number
- 
+  answerOk: number 
 }
 
-export const initialState: IExercState = {
+const initialState: IExercState = {
   finish:false,
   answers:[],
-  answerOk:0
- 
+  answerOk:0 
 };
 
 export const exerciseSlice = createSlice({
@@ -22,22 +21,18 @@ export const exerciseSlice = createSlice({
   initialState,
   reducers: {
     finishExercise: (state) => {
-      state.finish=true;
-      
+      state.finish=true;      
     },
-    setAnswer : (state, action) => {
-      
+    setAnswer : (state, action) => {      
       // eslint-disable-next-line prefer-const
       let temp = state.answers;
       const id = temp.findIndex (item=>item.question===action.payload.question)
       if (id!==-1)
-          {temp[id].answer=action.payload.answer
-          console.log ('lo encontre ', id)}
+          temp[id].answer=action.payload.answer         
       else
-        {temp.push(action.payload)
-        console.log('no lo encontre')}
+        temp.push(action.payload)        
       state.answers=[...temp]
-      console.log(temp)
+     
     },
     
   },

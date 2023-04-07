@@ -1,3 +1,4 @@
+//Evaluation obtained in the test
 import React from "react";
 import { Box, Heading, Text } from "@chakra-ui/react";
 import { resultData } from "../../json/result";

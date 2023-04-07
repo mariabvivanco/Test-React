@@ -1,28 +1,32 @@
-import React, { DragEvent } from "react";
-import { Box, Flex, Heading, Stack } from "@chakra-ui/react";
-import { ReactElement } from "react";
-import { useDispatch } from "react-redux";
+//Boxes for possible answers that allow dragging
+import React, { DragEvent, ReactElement } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { endDrag, isDragging, startDrag } from "../../store/dragSlicer";
-import { useSelector } from "react-redux";
+import { Box, Flex, Heading, Stack } from "@chakra-ui/react";
 
 import './exercise.css'
+import { IconType } from "react-icons/lib";
 
 interface CardProps {
   question: string;
-  icon: ReactElement;
+  icon: any;
   answer: string;
+  ind:string;
 }
 
-const CardQuestion = ({ answer, icon, question }: CardProps) => {
+export const CardQuestion = ({ answer, icon, question, ind }: CardProps) => {
   const dispatch = useDispatch();
   const isDrag = useSelector(isDragging)
   const onDragStart = (event: DragEvent) => {
+    console.log('si empece')
     event.dataTransfer.setData("answer", answer);
     event.dataTransfer.setData("question", question);
+    event.dataTransfer.setData("ind", ind);
     dispatch(startDrag());
   };
 
   const onDragEnd = () => {
+    console.log('si termine')
     dispatch(endDrag());
   };
   return (
@@ -58,4 +62,4 @@ const CardQuestion = ({ answer, icon, question }: CardProps) => {
   );
 };
 
-export default CardQuestion;
+

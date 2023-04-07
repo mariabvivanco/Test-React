@@ -1,4 +1,7 @@
+//Box where the chosen answer is dropped
+
 import React, { DragEvent, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Box,
   Flex,
@@ -8,26 +11,32 @@ import {
   Text,
   Center,
 } from "@chakra-ui/react";
-import { ReactElement } from "react";
-import { useSelector } from "react-redux";
-import { answers, setAnswer } from "../../store/exerciseSlicer";
-import { FcAnswers } from "react-icons/fc";
 
+import { FcAnswers } from "react-icons/fc";
+import { answers, setAnswer } from "../../store/exerciseSlicer";
 import "./exercise.css";
-import { useDispatch } from "react-redux";
+import { CardQuestion } from "./CardQuestion";
+import useIconOk from "../../hooks/useIconOk";
+import {
+  TbSquareNumber1,
+  TbSquareNumber2,
+  TbSquareNumber3,
+  TbSquareNumber4,
+} from "react-icons/tb";
+import { IconType } from "react-icons/lib";
+import { endDrag } from "../../store/dragSlicer";
 
 interface CardProps {
   question: string;
-  
 }
 
-const CardAnswer: React.FC<CardProps> = ({ question }) => {
+export const CardAnswer: React.FC<CardProps> = ({ question }) => {
   const dispatch = useDispatch();
   const onDropEntry = (event: DragEvent<HTMLDivElement>) => {
     const question = event.dataTransfer.getData("question");
-    
     const answer = event.dataTransfer.getData("answer");
     dispatch(setAnswer({ question, answer }));
+    dispatch(endDrag());
   };
 
   const allowDrop = (event: DragEvent<HTMLDivElement>) => {
@@ -36,10 +45,12 @@ const CardAnswer: React.FC<CardProps> = ({ question }) => {
 
   const answersUser = useSelector(answers);
   const [title, setTitle] = useState("");
+  
 
   useEffect(() => {
     const temp = answersUser.find((item) => item.question === question)?.answer;
     setTitle(temp ? temp : "");
+           
   }, [question, answersUser]);
 
   return (
@@ -51,39 +62,25 @@ const CardAnswer: React.FC<CardProps> = ({ question }) => {
         borderRadius="lg"
         overflow="hidden"
         p={5}
-        pt="50px"
+        pt="20px"
       >
-        <Center>
-          <Stack align={"start"} direction="row" spacing={2}>
-            <Flex
-              w={10}
-              h={10}
-              align={"center"}
-              justify={"center"}
-              color={"white"}
-              rounded={"full"}
-              bg={"grey"}
-            >
-              <Icon as={FcAnswers} w={6} h={6} />
-            </Flex>
-
+        <Center>       
+           
             {title !== "" ? (
-              <Heading size={{ base: "sm", md: "md" }}>{title}</Heading>
+              <CardQuestion
+              question={question}
+              answer={title}
+              ind='4'
+              icon={useIconOk(question,title)===0?<TbSquareNumber1/>:useIconOk(question,title)===1?<TbSquareNumber2/>:useIconOk(question,title)===2?<TbSquareNumber3/>:<TbSquareNumber4/>}
+            />
             ) : (
-              <Text
-                className="blinks"
-                ml="30px"
-                align={"center"}
-                color="neutral"
-              >
+              <Text className="blinks" color="neutral">
                 Arrastre aquí su respuesta
               </Text>
             )}
-          </Stack>
+         
         </Center>
       </Box>
     </div>
   );
 };
-
-export default CardAnswer;

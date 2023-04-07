@@ -1,16 +1,14 @@
+//Reduce to control if dragging is being done and change the visaul state of the boxes
 
 import { createSlice} from '@reduxjs/toolkit';
 import { RootState } from '.';
 
-
 export interface IDragState {
-  isDragging : boolean;
- 
+  isDragging : boolean; 
 }
 
-export const initialState: IDragState = {
-  isDragging:false,
-   
+const initialState: IDragState = {
+  isDragging:false,   
 };
 
 export const dragSlice = createSlice({
@@ -22,8 +20,7 @@ export const dragSlice = createSlice({
     },
     endDrag: (state) => {
       state.isDragging=false;
-    },
-    
+    },    
     
   },
 });

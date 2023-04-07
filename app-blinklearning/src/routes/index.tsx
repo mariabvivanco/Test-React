@@ -12,7 +12,6 @@ import { finish } from '../store/exerciseSlicer';
 const RoutesApp = () => {
 
   const isFinish = useSelector(finish)
-  console.log(' is finish es ', isFinish)
 
   return (
     <BrowserRouter>

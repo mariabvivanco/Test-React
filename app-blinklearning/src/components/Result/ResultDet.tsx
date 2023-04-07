@@ -1,9 +1,9 @@
+//Evaluation header obtained in the test
 import React from "react";
 import { Box, Heading, Text } from "@chakra-ui/react";
 import { InfoIcon } from '@chakra-ui/icons';
 
-export const ResultDet=()=> {
-  
+export const ResultDet=()=> {  
 
   return (
     <Box textAlign="center" py={10} px={6}>

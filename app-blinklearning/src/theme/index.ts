@@ -1,11 +1,17 @@
-import {extendTheme, theme} from "@chakra-ui/react";
-import {mode} from "@chakra-ui/theme-tools";
+import {extendTheme} from "@chakra-ui/react";
+
 
 export default extendTheme({
   config: {
     initialColorMode: "light",
     useSystemColorMode: true,
   },
+  
+    fonts: {
+      heading: 'Montserrat',
+      body: 'Montserrat',
+    },
+  
   
   colors: {
     bg:'#ffffff',

@@ -1,7 +1,8 @@
 import React from "react";
-
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
-  Flex,
+  Center,
   Container,
   Heading,
   Stack,
@@ -9,17 +10,16 @@ import {
   Button,
   Image,
 } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
+
 import { finish } from "../store/exerciseSlicer";
-import { Link } from "react-router-dom";
 
 const Home = () => {
   const isFinish = useSelector(finish);
   return (
-    <Container maxW={"5xl"}>
+    <Container maxH={"100vh"} minW="80%">
       <Stack
+        align="center"
         textAlign={"center"}
-        align={"center"}
         spacing={{ base: 8, md: 10 }}
         py={{ base: 20, md: 28 }}
       >
@@ -33,7 +33,7 @@ const Home = () => {
             cultura general
           </Text>
         </Heading>
-        <Text color={"gray.500"} maxW={"3xl"}>
+        <Text maxW={"3xl"}>
           Es importante tener una buena cultura general, para comprender mejor
           el mundo que nos rodea, mejorar nuestra capacidad de comunicación,
           tener una mentalidad abierta y un mayor grado de sofisticación
@@ -54,6 +54,7 @@ const Home = () => {
           </Link>
           <Link to={"/result"}>
             <Button
+              color="orange"
               rounded={"full"}
               px={6}
               isDisabled={!isFinish}
@@ -64,9 +65,16 @@ const Home = () => {
             </Button>
           </Link>
         </Stack>
-        <Flex w={"full"}>
-          <Image src="/assets/Home.png" alt="Cultura" rounded="lg" />
-        </Flex>
+        <Center w={"full"}>
+          <Image
+            src="/assets/Home.png"
+            alt="Cultura"
+            rounded="lg"
+            maxH="50vh"
+            width="auto"
+            display="block"
+          />
+        </Center>
       </Stack>
     </Container>
   );
